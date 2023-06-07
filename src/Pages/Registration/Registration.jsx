@@ -1,15 +1,40 @@
-import { useRef } from "react";
+import { updateProfile } from "firebase/auth";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const {name, email, password, photo,} = data;
+
+    createUser(email, password)
+    .then(res => {
+        const registerUser = res.user;
+        reset();
+        updateUserData(registerUser, name, photo);
+    })
+    .catch(error => console.log(error))
+
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            console.log("user name and URL updated");
+          })
+          .catch((error) => {
+           console.log(error);
+          });
+      };
   };
 
   return (

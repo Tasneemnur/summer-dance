@@ -1,10 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   const navLink = (
     <>
       <li>
-        <Link to="/"><a>Home</a></Link>
+        <Link to="/">
+          <a>Home</a>
+        </Link>
       </li>
       <li>
         <a>Instructors</a>
@@ -12,10 +17,14 @@ const Header = () => {
       <li>
         <a>Classes</a>
       </li>
-   {/* TODO */}
-      <li>
-        <a>Dashboard</a>
-      </li>
+      {/* TODO */}
+      {user ? (
+        <li>
+          <a>Dashboard</a>
+        </li>
+      ) : (
+        ""
+      )}
     </>
   );
   return (
@@ -45,17 +54,26 @@ const Header = () => {
             {navLink}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-2xl font-bold">Summer Dance</a>
+        <a className="btn btn-ghost normal-case text-2xl font-bold">
+          Summer Dance
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-        {navLink}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
       {/* TODO */}
-      <div className="navbar-end">
-        <Link to="/login"><a className="btn">Login</a></Link>
-      </div>
+      {user ? (
+        <div className="navbar-end">
+          <img src={user.photoURL} className="rounded-full h-12 w-12 me-4" alt="" />
+          <button className="btn">Logout</button>
+        </div>
+      ) : (
+        <div className="navbar-end">
+          <Link to="/login">
+            <button className="btn">Login</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

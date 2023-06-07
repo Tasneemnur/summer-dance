@@ -1,14 +1,52 @@
 import { useForm } from "react-hook-form";
 import dance from "../../images/login.jpg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    login(data.email, data.password)
+      .then((res) => {
+        const loggedUser = res.user;
+        if (loggedUser) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Login Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        console.log(loggedUser);
+        reset();
+        // navigate(from, {replace:true})
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          return Swal.fire({
+            icon: "error",
+            title: "Wrong Password",
+          });
+        }
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
+          return Swal.fire({
+            icon: "error",
+            title: "Wrong Email",
+          });
+        }
+      });
+  };
   return (
     <div className="hero min-h-screen mt-10">
       <div className="hero-content flex-col lg:flex-row">
@@ -30,7 +68,9 @@ const Login = () => {
                 {...register("email", { required: true })}
                 className="input input-bordered"
               />
-               {errors.email && <span className="text-red-700">This field is required</span>}
+              {errors.email && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -42,16 +82,23 @@ const Login = () => {
                 {...register("password", { required: true })}
                 className="input input-bordered"
               />
-              {errors.password && <span className="text-red-700">This field is required</span>}
+              {errors.password && (
+                <span className="text-red-700">This field is required</span>
+              )}
             </div>
             <div className="form-control mt-6">
               <input
                 className="btn btn-primary text-white"
                 type="submit"
-                value="Login"
+                value="Sign Up"
               />
             </div>
-            <p className="mt-2">New to this site? Please <Link className="underline text-primary" to="/register">Sign Up</Link></p>
+            <p className="mt-2">
+              New to this site? Please{" "}
+              <Link className="underline text-primary" to="/register">
+                Sign Up
+              </Link>
+            </p>
           </form>
         </div>
       </div>
