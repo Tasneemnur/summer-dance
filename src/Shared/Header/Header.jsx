@@ -3,7 +3,16 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        console.log("logout successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLink = (
     <>
       <li>
@@ -17,7 +26,6 @@ const Header = () => {
       <li>
         <a>Classes</a>
       </li>
-      {/* TODO */}
       {user ? (
         <li>
           <a>Dashboard</a>
@@ -61,11 +69,10 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLink}</ul>
       </div>
-      {/* TODO */}
       {user ? (
         <div className="navbar-end">
           <img src={user.photoURL} className="rounded-full h-12 w-12 me-4" alt="" />
-          <button className="btn">Logout</button>
+          <button onClick={handleLogout} className="btn">Log out</button>
         </div>
       ) : (
         <div className="navbar-end">

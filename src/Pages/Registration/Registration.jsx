@@ -132,7 +132,7 @@ const Registration = () => {
           <input
             className="btn btn-primary text-white"
             type="submit"
-            value="Login"
+            value="Sign Up"
           />
         </div>
         <p className="mt-2">

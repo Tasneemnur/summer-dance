@@ -90,7 +90,7 @@ const Login = () => {
               <input
                 className="btn btn-primary text-white"
                 type="submit"
-                value="Sign Up"
+                value="Login"
               />
             </div>
             <p className="mt-2">
