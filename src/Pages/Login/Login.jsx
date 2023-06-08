@@ -19,7 +19,6 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     login(data.email, data.password)
       .then((res) => {
         const loggedUser = res.user;
@@ -32,7 +31,6 @@ const Login = () => {
             timer: 1500,
           });
         }
-        console.log(loggedUser);
         reset();
         navigate(from, { replace: true });
       })
