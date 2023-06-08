@@ -48,27 +48,27 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "dashboard/addAClass",
+        path: "/dashboard/addAClass",
         element: <AddAClass></AddAClass>,
       },
       {
-        path: "dashboard/myClasses",
+        path: "/dashboard/myClasses",
         element: <MyClasses></MyClasses>,
       },
       {
-        path: "dashboard/manageClasses",
+        path: "/dashboard/manageClasses",
         element: <ManageClasses></ManageClasses>,
       },
       {
-        path: "dashboard/manageUsers",
+        path: "/dashboard/manageUsers",
         element: <ManageUsers></ManageUsers>,
       },
       {
-        path: "dashboard/selectedClasses",
+        path: "/dashboard/selectedClasses",
         element: <SelectedClasses></SelectedClasses>,
       },
       {
-        path: "dashboard/enrolledClasses",
+        path: "/dashboard/enrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
       },
     ],

@@ -7,12 +7,11 @@ import {
 import Header from "../../Shared/Header/Header";
 import Footer from "../../Shared/Footer/Footer";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useInstructor from "../../hooks/useInstructor/useInstructor";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
-    const isInstructor = false;
-
-
+    const [isInstructor] = useInstructor();
   return (
     <>
       <Header></Header>
@@ -42,12 +41,12 @@ const Dashboard = () => {
                   </span>
                 </p>
                 <li>
-                  <Link to="dashboard/manageClasses" className="text-white">
+                  <Link to="/dashboard/manageClasses" className="text-white">
                     <MdManageSearch></MdManageSearch>Manage Classes
                   </Link>
                 </li>
                 <li>
-                  <Link to="dashboard/manageUsers" className="text-white">
+                  <Link to="/dashboard/manageUsers" className="text-white">
                     <MdOutlineManageAccounts></MdOutlineManageAccounts>Manage
                     Users
                   </Link>
@@ -62,12 +61,12 @@ const Dashboard = () => {
                   </span>
                 </p>
                 <li>
-                  <Link to="dashboard/addAClass" className="text-white">
+                  <Link to="/dashboard/addAClass" className="text-white">
                     Add a Class
                   </Link>
                 </li>
                 <li>
-                  <Link to="dashboard/myClasses" className="text-white">
+                  <Link to="/dashboard/myClasses" className="text-white">
                     My Classes
                   </Link>
                 </li>
@@ -80,12 +79,12 @@ const Dashboard = () => {
                   </span>
                 </p>
                 <li>
-                  <Link to="dashboard/selectedClasses" className="text-white">
+                  <Link to="/dashboard/selectedClasses" className="text-white">
                     My Selected Classes
                   </Link>
                 </li>
                 <li>
-                  <Link to="dashboard/enrolledClasses" className="text-white">
+                  <Link to="/dashboard/enrolledClasses" className="text-white">
                     My Enrolled Classes
                   </Link>
                 </li>
