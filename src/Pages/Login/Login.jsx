@@ -1,12 +1,17 @@
 import { useForm } from "react-hook-form";
 import dance from "../../images/login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     handleSubmit,
@@ -29,7 +34,7 @@ const Login = () => {
         }
         console.log(loggedUser);
         reset();
-        // navigate(from, {replace:true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -45,6 +50,30 @@ const Login = () => {
             title: "Wrong Email",
           });
         }
+      });
+  };
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const loggedUser = result.user;
+        const saveUser = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+        };
+        fetch('http://localhost:5000/users', {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then(() => {
+            navigate(from, { replace: true });
+          });
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (
@@ -69,7 +98,7 @@ const Login = () => {
                 className="input input-bordered"
               />
               {errors.email && (
-                <span className="text-red-700">This field is required</span>
+                <span className="text-red-700">Email is required</span>
               )}
             </div>
             <div className="form-control">
@@ -83,23 +112,30 @@ const Login = () => {
                 className="input input-bordered"
               />
               {errors.password && (
-                <span className="text-red-700">This field is required</span>
+                <span className="text-red-700">Password is required</span>
               )}
             </div>
             <div className="form-control mt-6">
               <input
-                className="btn btn-primary text-white"
+                className="btn bg-orange-600 hover:bg-orange-700 text-white"
                 type="submit"
                 value="Login"
               />
             </div>
             <p className="mt-2">
-              New to this site? Please
+              New to this site? Please{" "}
               <Link className="underline text-primary" to="/register">
+                {" "}
                 Sign Up
               </Link>
             </p>
           </form>
+          <button
+            onClick={handleGoogleLogin}
+            className="btn mb-8 mx-8 bg-gray-300"
+          >
+            <FcGoogle></FcGoogle>Sign in With Google
+          </button>
         </div>
       </div>
     </div>

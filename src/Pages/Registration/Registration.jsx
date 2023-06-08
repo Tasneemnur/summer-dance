@@ -1,11 +1,13 @@
 import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Registration = () => {
     const {createUser} = useContext(AuthContext)
+    const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -29,7 +31,28 @@ const Registration = () => {
           photoURL: photo,
         })
           .then(() => {
-            console.log("user name and URL updated");
+            const registerUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(registerUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                              if (data.insertedId) {
+                                  reset();
+                                  Swal.fire({
+                                      position: 'center',
+                                      icon: 'success',
+                                      title: 'User created successfully.',
+                                      showConfirmButton: false,
+                                      timer: 1500
+                                  });
+                                  navigate('/');
+                              }
+                          })
           })
           .catch((error) => {
            console.log(error);
@@ -130,15 +153,13 @@ const Registration = () => {
         </div>
         <div className="form-control mt-6">
           <input
-            className="btn btn-primary text-white"
+            className="btn bg-orange-600 text-white"
             type="submit"
             value="Sign Up"
           />
         </div>
         <p className="mt-2">
-          Already have an account? Please
-          <Link className="underline text-primary" to="/login">
-            Login
+          Already have an account? Please <Link className="underline text-primary" to="/login"> Login
           </Link>
         </p>
       </form>

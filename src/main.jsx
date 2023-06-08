@@ -15,6 +15,12 @@ import ManageClasses from "./Pages/Dashboard/ManageClasses/ManageClasses";
 import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers";
 import SelectedClasses from "./Pages/Dashboard/SelectedClasses/SelectedClasses";
 import EnrolledClasses from "./Pages/Dashboard/EnrolledClasses/EnrolledClasses";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -43,7 +49,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard/addAClass",
-        element: <AddAClass></AddAClass>
+        element: <AddAClass></AddAClass>,
       },
       {
         path: "dashboard/myClasses",
@@ -71,10 +77,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthProvider>
+    <QueryClientProvider client={queryClient}>
     <div className="md:w-5/6 mx-auto">
-      <AuthProvider>
         <RouterProvider router={router} />
-      </AuthProvider>
-    </div>
+      </div>
+    </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
