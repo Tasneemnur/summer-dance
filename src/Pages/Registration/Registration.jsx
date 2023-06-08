@@ -136,7 +136,7 @@ const Registration = () => {
           />
         </div>
         <p className="mt-2">
-          Already have an account? Please{" "}
+          Already have an account? Please
           <Link className="underline text-primary" to="/login">
             Login
           </Link>

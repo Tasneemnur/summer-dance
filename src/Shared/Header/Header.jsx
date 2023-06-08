@@ -28,7 +28,7 @@ const Header = () => {
       </li>
       {user ? (
         <li>
-          <a>Dashboard</a>
+          <Link to="/dashboard"><a>Dashboard</a></Link>
         </li>
       ) : (
         ""

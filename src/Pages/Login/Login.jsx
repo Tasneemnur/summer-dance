@@ -94,7 +94,7 @@ const Login = () => {
               />
             </div>
             <p className="mt-2">
-              New to this site? Please{" "}
+              New to this site? Please
               <Link className="underline text-primary" to="/register">
                 Sign Up
               </Link>
