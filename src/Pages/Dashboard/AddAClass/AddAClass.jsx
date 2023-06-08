@@ -1,32 +1,28 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
-
 const AddAClass = () => {
-    const {user} = useContext(AuthContext)
-    return (
-        <div>
-      <h1 className="text-3xl text-center font-bold my-10">
-        Add A <span className="text-yellow-500">Toy Car</span>
-      </h1>
+  const { user } = useContext(AuthContext);
+  return (
+    <div>
 
-      <form >
-        <div className="grid grid-cols-2 gap-x-5 gap-y-4">
+      <form>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-4">
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Toy Name</span>
+              <span className="label-text">Class Name</span>
             </label>
             <input
               type="text"
               placeholder="name"
-              name="toyName"
+              name="className"
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Picture URL</span>
+              <span className="label-text">Class Image</span>
             </label>
             <input
               type="text"
@@ -38,90 +34,75 @@ const AddAClass = () => {
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Seller Name</span>
+              <span className="label-text">Instructor Name</span>
             </label>
             <input
               type="text"
-              placeholder="seller name"
-              name="sellerName"
-              defaultValue={user?.displayName}
+              placeholder="instructor name"
+              name="instructorName"
+              value={user?.displayName}
+              readOnly
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Seller Email</span>
+              <span className="label-text">Instructor Email</span>
             </label>
             <input
               type="email"
-              placeholder="seller email"
-              name="sellerEmail"
-              defaultValue={user?.email}
+              placeholder="instructor email"
+              name="instructorEmail"
+              value={user?.email}
+              readOnly
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Sub Category</span>
-            </label>
-            <select className="select select-bordered" name="category" required>
-              <option>Sports Car</option>
-              <option>Truck</option>
-              <option>Mini Police Car</option>
-            </select>
-          </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Price</span>
+              <span className="label-text">Instructor Image</span>
             </label>
             <input
               type="text"
-              placeholder="price"
-              name="price"
+              placeholder="instructor photo url"
+              name="instructorPhoto"
+              value={user?.photoURL}
+              readOnly
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Rating</span>
+              <span className="label-text">Available Seats</span>
             </label>
             <input
               type="text"
-              placeholder="rating"
-              name="rating"
+              placeholder="available seats"
+              name="seats"
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Available Quantity</span>
+              <span className="label-text">Status</span>
             </label>
             <input
               type="text"
-              placeholder="quantity"
-              name="quantity"
+              placeholder="status"
+              name="status"
+              value="Pending"
+              readOnly
               className="input input-bordered w-full max-w-xs"
               required
             />
           </div>
-          <div className="form-control w-full  col-span-2">
-            <label className="label">
-              <span className="label-text">Detail Description</span>
-            </label>
-            <textarea
-              className="textarea textarea-bordered h-24"
-              name="description"
-              placeholder="detail description"
-              required
-            ></textarea>
-          </div>
-          <div className="form-control mt-6 w-full col-span-2">
+          <div className="form-control mt-2 w-full col-span-2">
             <input
-              className="btn bg-yellow-500 border-none hover:bg-yellow-600"
+              className="btn bg-orange-600 text-white border-none hover:bg-orange-700"
               type="submit"
               value="Add"
             />
@@ -129,7 +110,7 @@ const AddAClass = () => {
         </div>
       </form>
     </div>
-    );
+  );
 };
 
 export default AddAClass;
