@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import Swal from "sweetalert2";
 
 const ManageUsers = () => {
-  const [disable, setDisable] = useState(false);
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await fetch("http://localhost:5000/users");
     return res.json();
@@ -24,7 +22,24 @@ const ManageUsers = () => {
             timer: 1500,
           });
         }
-        setDisable(true);
+      });
+  };
+  const handleMakeAdmin = (user) => {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `${user.name} is an admin now.`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       });
   };
   return (
