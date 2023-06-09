@@ -1,12 +1,45 @@
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const AddAClass = () => {
   const { user } = useContext(AuthContext);
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    const className = form.className.value;
+    const classImage = form.photo.value;
+    const instructorName = form.instructorName.value;
+    const instructorEmail = form.instructorEmail.value;
+    const instructorImage = form.instructorPhoto.value;
+    const availableSeats = form.seats.value;
+    const status = form.status.value;
+    const danceClass = {className, classImage, instructorName, instructorEmail, instructorImage, availableSeats, status};
+    console.log(danceClass)
+    fetch('http://localhost:5000/classes', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(danceClass)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+            text: 'Dance class Inserted successfully',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+          })
+    }
+      form.reset()
+    })
+  }
   return (
     <div>
-
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-4">
           <div className="form-control w-full max-w-xs">
             <label className="label">
