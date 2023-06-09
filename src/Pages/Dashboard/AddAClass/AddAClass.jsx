@@ -14,8 +14,9 @@ const AddAClass = () => {
     const instructorEmail = form.instructorEmail.value;
     const instructorImage = form.instructorPhoto.value;
     const availableSeats = form.seats.value;
+    const price = form.price.value;
     const status = form.status.value;
-    const danceClass = {className, classImage, instructorName, instructorEmail, instructorImage, availableSeats, status};
+    const danceClass = {className, classImage, instructorName, instructorEmail, instructorImage, availableSeats, price, status};
     console.log(danceClass)
     fetch('http://localhost:5000/classes', {
       method: "POST",
@@ -115,6 +116,18 @@ const AddAClass = () => {
               type="text"
               placeholder="available seats"
               name="seats"
+              className="input input-bordered w-full max-w-xs"
+              required
+            />
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Price</span>
+            </label>
+            <input
+              type="text"
+              placeholder="price"
+              name="price"
               className="input input-bordered w-full max-w-xs"
               required
             />

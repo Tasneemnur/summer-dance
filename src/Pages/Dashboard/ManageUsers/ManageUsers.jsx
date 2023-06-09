@@ -75,14 +75,14 @@ const ManageUsers = () => {
                   <button
                     disabled={user.role === "instructor"}
                     onClick={() => handleMakeInstructor(user)}
-                    className="btn btn-xs rounded-md me-2 bg-orange-600 text-white"
+                    className="btn btn-xs rounded-md me-2 bg-orange-600 text-white hover:bg-blue-950"
                   >
                     Instructor
                   </button>
                   <button
                     disabled={user.role === "admin"}
                     onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-xs rounded-md bg-orange-600 text-white"
+                    className="btn btn-xs rounded-md bg-orange-600 text-white hover:bg-blue-950"
                   >
                     Admin
                   </button>
