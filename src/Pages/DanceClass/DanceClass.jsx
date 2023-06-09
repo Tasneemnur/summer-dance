@@ -1,5 +1,7 @@
 const DanceClass = ({ item }) => {
   const { classImage, className, instructorName, availableSeats, price } = item;
+  const seats = parseInt(availableSeats);
+  const fees = parseFloat(price);
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
@@ -16,14 +18,14 @@ const DanceClass = ({ item }) => {
         </div>
         <div className="md:flex">
           <p className="text-neutral-500 text-sm font-semibold">
-            Available Seats: {availableSeats}
+            Available Seats: {seats}
           </p>
           <p className="text-neutral-500 text-sm font-semibold md:ms-16">
-            Price: ${price}
+            Price: ${fees}
           </p>
         </div>
         <div className="card-actions justify-center mt-5">
-          <button className="btn btn-sm border-b-2 border-b-orange-600 ">
+          <button disabled={availableSeats === 0} className="btn btn-sm border-b-2 border-b-orange-600 ">
             select
           </button>
         </div>
