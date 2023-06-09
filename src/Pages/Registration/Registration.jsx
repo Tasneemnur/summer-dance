@@ -31,7 +31,7 @@ const Registration = () => {
           photoURL: photo,
         })
           .then(() => {
-            const registerUser = { name: data.name, email: data.email }
+            const registerUser = { name: data.name, email: data.email, photo: data.photo }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {

@@ -19,6 +19,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import Feedback from "./Pages/Dashboard/Feedback/Feedback";
+import Classes from "./Pages/Classes/Classes";
+import Instructors from "./Pages/Instructors/Instructors";
 
 const queryClient = new QueryClient()
 
@@ -39,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/classes",
+        element: <Classes></Classes>,
+      },
+      {
+        path: "/instructors",
+        element: <Instructors></Instructors>,
       },
     ],
   },
@@ -70,6 +81,11 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/enrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
+      },
+      {
+        path: "/dashboard/feedback/:id",
+        element: <Feedback></Feedback>,
+        loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
       },
     ],
   },

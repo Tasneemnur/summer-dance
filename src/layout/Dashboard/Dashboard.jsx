@@ -11,11 +11,12 @@ import useInstructor from "../../hooks/useInstructor/useInstructor";
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
+    // const isAdmin = true;
     const [isInstructor] = useInstructor();
   return (
     <>
       <Header></Header>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open my-14">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           <Outlet></Outlet>

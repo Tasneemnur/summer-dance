@@ -21,14 +21,14 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <a>Instructors</a>
+        <Link to="/instructors">Instructors</Link>
       </li>
       <li>
-        <a>Classes</a>
+        <Link to="/classes">Classes</Link>
       </li>
       {user ? (
         <li>
-          <Link to="/dashboard"><a>Dashboard</a></Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
       ) : (
         ""
@@ -63,7 +63,7 @@ const Header = () => {
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-2xl font-bold">
-          Summer Dance
+          Summer <span className="text-orange-600">Dance</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
