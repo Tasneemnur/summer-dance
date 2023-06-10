@@ -1,6 +1,7 @@
 import banner1 from "../../images/Banner.jpeg";
 import banner2 from "../../images/b2.jpg";
 import banner3 from "../../images/banner3.jpg";
+import PopularInstructors from "./PopularInstructors";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
             <div className="absolute text-white top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40 p-10 flex flex-col justify-center items-center">
             <h1 className="text-4xl font-bold">Welcome to Summer <span className="text-orange-600">Dance</span></h1>
             <p className="text-neutral-300">Enjoy your summer dancing with us</p>
-            <button className="btn bg-orange-600 text-white border-0 my-5">Get started</button>
+            <button className="btn bg-orange-600 text-white border-0 my-5 hover:bg-orange-700">Get started</button>
             </div>
           </div>
           <div id="item2" className="carousel-item w-full relative">
@@ -20,7 +21,7 @@ const Home = () => {
             <div className="absolute text-white top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40 p-10 flex flex-col justify-center items-center">
             <h1 className="text-4xl font-bold">Welcome to Summer <span className="text-orange-600">Dance</span></h1>
             <p className="text-neutral-300">Enjoy your summer dancing with us</p>
-            <button className="btn bg-orange-600 text-white border-0 my-5">Get started</button>
+            <button className="btn bg-orange-600 text-white border-0 my-5 hover:bg-orange-700">Get started</button>
             </div>
           </div>
           <div id="item3" className="carousel-item w-full relative">
@@ -28,7 +29,7 @@ const Home = () => {
             <div className="absolute text-white top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40 p-10 flex flex-col justify-center items-center">
             <h1 className="text-4xl font-bold">Welcome to Summer <span className="text-orange-600">Dance</span></h1>
             <p className="text-neutral-300">Enjoy your summer dancing with us</p>
-            <button className="btn bg-orange-600 text-white border-0 my-5">Get started</button>
+            <button className="btn bg-orange-600 text-white border-0 my-5 hover:bg-orange-700">Get started</button>
             </div>
           </div>
         </div>
@@ -44,6 +45,7 @@ const Home = () => {
           </a>
         </div>
       </div>
+      <PopularInstructors></PopularInstructors>
     </div>
   );
 };

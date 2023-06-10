@@ -10,7 +10,7 @@ const Instructors = () => {
         .then(data => setInstructors(data))
     } ,[])
     return (
-        <div className="my-10">
+        <div className="">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {
                 instructors.map(instructor => <Instructor key={instructor._id} instructor={instructor}></Instructor>)

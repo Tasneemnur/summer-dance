@@ -10,8 +10,8 @@ const Classes = () => {
     } ,[])
     
     return (
-        <div className="my-10">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 my-10">
+        <div className="">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mb-10">
             {
                 approved.map(item => <DanceClass key={item._id} item={item}></DanceClass> )
             }
