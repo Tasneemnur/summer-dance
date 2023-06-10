@@ -3,7 +3,7 @@ const Instructor = ({ instructor }) => {
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl">
       <figure>
-        <img src={photo} className="w-96 h-72" />
+        <img src={photo} className="w-full h-[350px]" />
       </figure>
       <div className="card-body justify-center items-center">
         <div className="mb-4">

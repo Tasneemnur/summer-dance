@@ -1,9 +1,14 @@
+import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useInstructor from "../../hooks/useInstructor/useInstructor";
+
 const DanceClass = ({ item }) => {
   const { classImage, className, instructorName, availableSeats, price } = item;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const seats = parseInt(availableSeats);
   const fees = parseFloat(price);
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
+    <div className={`card ${seats === 0 ? 'bg-red-700' : 'bg-base-100'} w-full  shadow-xl`}>
       <figure>
         <img src={classImage} className="w-96 h-60" alt="Shoes" />
       </figure>
@@ -25,7 +30,7 @@ const DanceClass = ({ item }) => {
           </p>
         </div>
         <div className="card-actions justify-center mt-5">
-          <button disabled={availableSeats === 0} className="btn btn-sm border-b-2 border-b-orange-600 ">
+          <button disabled={availableSeats === 0 || isAdmin || isInstructor} className="btn btn-sm border-b-2 border-b-orange-600 ">
             select
           </button>
         </div>
