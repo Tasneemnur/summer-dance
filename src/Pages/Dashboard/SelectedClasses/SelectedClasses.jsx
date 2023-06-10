@@ -1,6 +1,8 @@
 import useCart from "../../../hooks/useCart/useCart";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import Title from "../../../Shared/Title/Title";
 
 const SelectedClasses = () => {
   const [cart, refetch] = useCart();
@@ -31,7 +33,8 @@ const SelectedClasses = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
+        <Title heading="Selected Classes" subHeading="These are the classes that you select. Manage your selected classes"></Title>
+      <div className="overflow-x-auto mt-16">
         <table className="table text-center">
           {/* head */}
           <thead>
@@ -74,7 +77,7 @@ const SelectedClasses = () => {
                   >
                     <MdDelete></MdDelete>
                   </button>
-                  <button className="btn btn-outline btn-sm">pay</button>
+                  <Link to="/dashboard/payment"><button className="btn btn-outline btn-sm">pay</button></Link>
                 </td>
               </tr>
             ))}

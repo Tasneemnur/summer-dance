@@ -22,6 +22,7 @@ import {
 import Feedback from "./Pages/Dashboard/Feedback/Feedback";
 import Classes from "./Pages/Classes/Classes";
 import Instructors from "./Pages/Instructors/Instructors";
+import Payment from "./Pages/Dashboard/Payment/Payment";
 
 const queryClient = new QueryClient()
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         path: "/dashboard/feedback/:id",
         element: <Feedback></Feedback>,
         loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>,
       },
     ],
   },
