@@ -36,7 +36,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar fixed z-10 bg-opacity-30 bg-black md:w-[1100px] text-white">
+    <div className="navbar fixed z-10 bg-opacity-30 bg-black md:w-[1050px] text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -72,7 +72,7 @@ const Header = () => {
       {user ? (
         <div className="navbar-end">
           <img src={user.photoURL} className="rounded-full h-12 w-12 me-4" alt="" />
-          <button onClick={handleLogout} className="btn">Log out</button>
+          <button onClick={handleLogout} className="btn">Logout</button>
         </div>
       ) : (
         <div className="navbar-end">

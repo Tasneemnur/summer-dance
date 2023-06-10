@@ -32,7 +32,7 @@ const PopularInstructors = () => {
           {PopularInstructors.map((instructor) => (
             <SwiperSlide key={instructor._id}>
               <img
-                className="w-full h-96 mb-10"
+                className="w-full h-80 mb-10"
                 src={instructor.photo}
                 alt=""
               />

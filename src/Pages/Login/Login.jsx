@@ -54,6 +54,8 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, {replace: true})
         const saveUser = {
           name: loggedUser.displayName,
           email: loggedUser.email,
@@ -67,7 +69,6 @@ const Login = () => {
         })
           .then((res) => res.json())
           .then(() => {
-            navigate(from, { replace: true });
           });
       })
       .catch((error) => {
@@ -75,7 +76,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero min-h-screen mt-10">
+    <div className="hero min-h-screen pt-20 pb-10">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left md:p-10">
           <img src={dance} alt="" />
@@ -124,7 +125,7 @@ const Login = () => {
               New to this site? Please{" "}
               <Link className="underline text-primary" to="/register">
                 {" "}
-                Sign Up
+                Signup
               </Link>
             </p>
           </form>

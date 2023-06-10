@@ -3,7 +3,11 @@ import {
   MdDashboard,
   MdOutlineManageAccounts,
   MdManageSearch,
+  MdClass,
 } from "react-icons/md";
+import {
+  BiSelectMultiple
+} from "react-icons/bi";
 import Header from "../../Shared/Header/Header";
 import Footer from "../../Shared/Footer/Footer";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
@@ -15,8 +19,8 @@ const Dashboard = () => {
     const [isInstructor] = useInstructor();
   return (
     <>
-      <Header></Header>
-      <div className="drawer lg:drawer-open my-14">
+      {/* <Header></Header> */}
+      <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           <Outlet></Outlet>
@@ -81,12 +85,12 @@ const Dashboard = () => {
                 </p>
                 <li>
                   <Link to="/dashboard/selectedClasses" className="text-white">
-                    My Selected Classes
+                    <BiSelectMultiple></BiSelectMultiple>My Selected Classes
                   </Link>
                 </li>
                 <li>
                   <Link to="/dashboard/enrolledClasses" className="text-white">
-                    My Enrolled Classes
+                    <MdClass></MdClass>My Enrolled Classes
                   </Link>
                 </li>
               </>

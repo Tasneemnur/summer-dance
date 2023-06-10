@@ -61,7 +61,8 @@ const Registration = () => {
   };
 
   return (
-    <div className="w-2/4 mx-auto border rounded-md shadow-2xl bg-base-100 mt-16">
+    <div className="pt-20 pb-10">
+    <div className="w-2/4 mx-auto border rounded-md shadow-2xl bg-base-100">
       <h1 className="text-5xl font-bold text-center mt-8">Sign Up</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control">
@@ -163,6 +164,7 @@ const Registration = () => {
           </Link>
         </p>
       </form>
+    </div>
     </div>
   );
 };
