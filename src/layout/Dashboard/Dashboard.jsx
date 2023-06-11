@@ -4,12 +4,13 @@ import {
   MdOutlineManageAccounts,
   MdManageSearch,
   MdClass,
+  MdPayment,
 } from "react-icons/md";
 import {
   BiSelectMultiple
 } from "react-icons/bi";
-import Header from "../../Shared/Header/Header";
-import Footer from "../../Shared/Footer/Footer";
+// import Header from "../../Shared/Header/Header";
+// import Footer from "../../Shared/Footer/Footer";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
 import useInstructor from "../../hooks/useInstructor/useInstructor";
 
@@ -91,6 +92,11 @@ const Dashboard = () => {
                 <li>
                   <Link to="/dashboard/enrolledClasses" className="text-white">
                     <MdClass></MdClass>My Enrolled Classes
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/payments" className="text-white">
+                    <MdPayment></MdPayment>Payment History
                   </Link>
                 </li>
               </>

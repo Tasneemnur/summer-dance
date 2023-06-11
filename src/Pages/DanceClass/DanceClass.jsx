@@ -66,7 +66,7 @@ const DanceClass = ({ item }) => {
   return (
     <div
       className={`card ${
-        seats === 0 ? "bg-red-700" : "bg-base-100"
+        seats === 0 ? "bg-red-300" : "bg-base-100"
       } w-full  shadow-xl`}
     >
       <figure>

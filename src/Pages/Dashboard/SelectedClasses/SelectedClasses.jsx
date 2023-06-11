@@ -77,7 +77,7 @@ const SelectedClasses = () => {
                   >
                     <MdDelete></MdDelete>
                   </button>
-                  <Link to="/dashboard/payment"><button className="btn btn-outline btn-sm">pay</button></Link>
+                  <Link to={`/dashboard/payment/${eachClass._id}`}><button className="btn bg-orange-600 hover:bg-orange-700 btn-sm text-white">pay</button></Link>
                 </td>
               </tr>
             ))}
