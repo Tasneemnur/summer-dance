@@ -23,6 +23,7 @@ import Feedback from "./Pages/Dashboard/Feedback/Feedback";
 import Classes from "./Pages/Classes/Classes";
 import Instructors from "./Pages/Instructors/Instructors";
 import Payment from "./Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "./Pages/Dashboard/PaymentHistory/PaymentHistory";
 
 const queryClient = new QueryClient()
 
@@ -95,7 +96,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/payments",
-        element: <EnrolledClasses></EnrolledClasses>,
+        element: <PaymentHistory></PaymentHistory>,
       },
     ],
   },

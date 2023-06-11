@@ -15,7 +15,6 @@ const EnrolledClasses = () => {
       return res.data;
     },
   });
-  console.log(enrolledClasses);
   return (
     <div className="pb-10">
     <Title heading="Enrolled Classes" subHeading="You successfully enroll to these classes"></Title>

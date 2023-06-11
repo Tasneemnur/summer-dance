@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Title from "../../../Shared/Title/Title";
 
 const AddAClass = () => {
   const { user } = useContext(AuthContext);
@@ -39,6 +40,7 @@ const AddAClass = () => {
   }
   return (
     <div>
+      <Title heading="Add A Class" subHeading="Add an interesting class so that your class got approved by our admins"></Title>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-4">
           <div className="form-control w-full max-w-xs">
