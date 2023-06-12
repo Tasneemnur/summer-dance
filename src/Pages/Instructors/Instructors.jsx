@@ -8,7 +8,7 @@ import cover from "../../images/banner3.jpg"
 const Instructors = () => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/users?role=instructor')
+        fetch('https://assignment-12-summer-dance-server.vercel.app/users?role=instructor')
         .then(res => res.json())
         .then(data => setInstructors(data))
     } ,[])

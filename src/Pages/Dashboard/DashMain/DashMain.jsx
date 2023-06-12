@@ -1,4 +1,3 @@
-import Cover from "../../../Shared/Cover/Cover";
 import cover from "../../../images/cover2.jpeg";
 
 const DashMain = () => {

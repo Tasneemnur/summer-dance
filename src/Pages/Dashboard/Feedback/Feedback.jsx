@@ -11,7 +11,7 @@ const Feedback = () => {
     const feedback = form.feedback.value;
 
     axios
-      .patch(`http://localhost:5000/classes/${danceClass._id}`, {
+      .patch(`https://assignment-12-summer-dance-server.vercel.app/classes/${danceClass._id}`, {
         feedback: feedback,
       })
       .then((data) => {

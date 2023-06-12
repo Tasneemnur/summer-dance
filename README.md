@@ -5,4 +5,4 @@
 - There are different dashboard for all the instructors. These instructors are selected for our admins. Instructor can't view any student's dashboard information. They cannot even select any classes. They can only add new classes and view the status of their added classes like if the class is approved by the admins or not. No class can come to viewers page without admins approval.
 - There are separate dashboard for admins. Admin can make any student instructor or admin if they want. They can also give feedback to the clases that the instructors added through their dashboard.
 - The technologies that used to make this site are ReactJs, TailwindCSS, Javascript, ExpressJs, MongoDB, JWT, Stripe,  React hook components.
-- 
+- https://assignment-12-summer-dance.web.app/  

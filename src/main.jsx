@@ -95,12 +95,12 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/feedback/:id",
         element: <AdminRoute><Feedback></Feedback></AdminRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-12-summer-dance-server.vercel.app/classes/${params.id}`)
       },
       {
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
-        loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-12-summer-dance-server.vercel.app/carts/${params.id}`)
       },
       {
         path: "/dashboard/payments",

@@ -7,7 +7,7 @@ import Title from "../../Shared/Title/Title";
 const Classes = () => {
     const [approved, setApproved] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/classes?status=Approved')
+        fetch('https://assignment-12-summer-dance-server.vercel.app/classes?status=Approved')
         .then(res => res.json())
         .then(data => setApproved(data))
     } ,[])

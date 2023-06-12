@@ -18,7 +18,7 @@ const AddAClass = () => {
     const status = form.status.value;
     const danceClass = {className, classImage, instructorName, instructorEmail, availableSeats, price, status};
     console.log(danceClass)
-    fetch('http://localhost:5000/classes', {
+    fetch('https://assignment-12-summer-dance-server.vercel.app/classes', {
       method: "POST",
       headers: {
         'content-type': 'application/json'
