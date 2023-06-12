@@ -1,0 +1,8 @@
+- The name of this website is Summer Dance.
+- This website focuses on the students who are right now in summer vacation. To utilize this free time we offer the student a dance class which they can enjoy in their vacation period.
+- There are few open pages which viewsers can view without being a user of this site. They don't need any account to view this route like our instructors,the classes that we provide and our Home page.
+- For selecting any class user have to register to this site and then they can select as a student. They can also view the classes they select and if they are interested to that class there is also payment system in this site by which student can pay to join the classes. 
+- There are different dashboard for all the instructors. These instructors are selected for our admins. Instructor can't view any student's dashboard information. They cannot even select any classes. They can only add new classes and view the status of their added classes like if the class is approved by the admins or not. No class can come to viewers page without admins approval.
+- There are separate dashboard for admins. Admin can make any student instructor or admin if they want. They can also give feedback to the clases that the instructors added through their dashboard.
+- The technologies that used to make this site are ReactJs, TailwindCSS, Javascript, ExpressJs, MongoDB, JWT, Stripe,  React hook components.
+- 

@@ -25,6 +25,9 @@ import Instructors from "./Pages/Instructors/Instructors";
 import Payment from "./Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "./Pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./Routes/PrivateRoute";
+import DashMain from "./Pages/Dashboard/DashMain/DashMain";
+import InstructorRoute from "./Routes/InstructorRoute";
+import AdminRoute from "./Routes/AdminRoute";
 
 const queryClient = new QueryClient()
 
@@ -62,20 +65,24 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
+        path: "/dashboard",
+        element: <DashMain></DashMain>,
+      },
+      {
         path: "/dashboard/addAClass",
-        element: <AddAClass></AddAClass>,
+        element: <InstructorRoute><AddAClass></AddAClass></InstructorRoute>,
       },
       {
         path: "/dashboard/myClasses",
-        element: <MyClasses></MyClasses>,
+        element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute>,
       },
       {
         path: "/dashboard/manageClasses",
-        element: <ManageClasses></ManageClasses>,
+        element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
       },
       {
         path: "/dashboard/manageUsers",
-        element: <ManageUsers></ManageUsers>,
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
       },
       {
         path: "/dashboard/selectedClasses",
@@ -87,7 +94,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/feedback/:id",
-        element: <Feedback></Feedback>,
+        element: <AdminRoute><Feedback></Feedback></AdminRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
       },
       {

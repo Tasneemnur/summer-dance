@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import Cover from "../../Shared/Cover/Cover";
+import Title from "../../Shared/Title/Title";
 import Instructor from "../Instructor/Instructor";
+import cover from "../../images/banner3.jpg"
 
 
 const Instructors = () => {
@@ -11,6 +14,8 @@ const Instructors = () => {
     } ,[])
     return (
         <div className="">
+            <Cover photo={cover} heading="Get to Know Our Instructors"></Cover>
+            <Title heading="Our Instructors" subHeading="Here we provide the best we can. These are some well known instructors in the town"></Title>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {
                 instructors.map(instructor => <Instructor key={instructor._id} instructor={instructor}></Instructor>)
