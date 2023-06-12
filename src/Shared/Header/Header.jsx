@@ -72,12 +72,12 @@ const Header = () => {
       {user ? (
         <div className="navbar-end">
           <img src={user.photoURL} className="rounded-full h-12 w-12 me-4" alt="" />
-          <button onClick={handleLogout} className="btn">Logout</button>
+          <button onClick={handleLogout} className="btn bg-orange-600 hover:bg-orange-700 text-white border-0">Logout</button>
         </div>
       ) : (
         <div className="navbar-end">
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className="btn bg-orange-600 hover:bg-orange-700 text-white border-0">Login</button>
           </Link>
         </div>
       )}

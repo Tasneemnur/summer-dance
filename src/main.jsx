@@ -24,6 +24,7 @@ import Classes from "./Pages/Classes/Classes";
 import Instructors from "./Pages/Instructors/Instructors";
 import Payment from "./Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "./Pages/Dashboard/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./Routes/PrivateRoute";
 
 const queryClient = new QueryClient()
 
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
@@ -106,7 +107,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
     <QueryClientProvider client={queryClient}>
-    <div className="md:w-[1050px] mx-auto">
+    <div className="md:w-[1050px] md:mx-auto">
         <RouterProvider router={router} />
       </div>
     </QueryClientProvider>

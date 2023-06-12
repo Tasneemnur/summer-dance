@@ -2,11 +2,13 @@ import banner1 from "../../images/Banner.jpeg";
 import banner2 from "../../images/b2.jpg";
 import banner3 from "../../images/banner3.jpg";
 import PopularInstructors from "./PopularInstructors";
+import PopularClasses from "./PopularClasses";
+import Events from "./Events";
 
 const Home = () => {
   return (
     <div>
-      <div className="">
+      <div className="md:-mx-[107px]">
         <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full relative">
             <img src={banner1} className="w-full h-[570px]" />
@@ -45,7 +47,10 @@ const Home = () => {
           </a>
         </div>
       </div>
+      <PopularClasses></PopularClasses>
       <PopularInstructors></PopularInstructors>
+      <Events></Events>
+      
     </div>
   );
 };
