@@ -10,7 +10,7 @@ const ManageClasses = () => {
     return res.data;
   });
   const handleApprove = (danceClass) => {
-    fetch(`http://localhost:5000/classes/approved/${danceClass._id}`, {
+    fetch(`https://assignment-12-summer-dance-server.vercel.app/classes/approved/${danceClass._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -28,7 +28,7 @@ const ManageClasses = () => {
       });
   };
   const handleDeny = (danceClass) => {
-    fetch(`http://localhost:5000/classes/denied/${danceClass._id}`, {
+    fetch(`https://assignment-12-summer-dance-server.vercel.app/classes/denied/${danceClass._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
